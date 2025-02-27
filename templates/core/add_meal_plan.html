@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% block title %}Add Meal Plan - Recipe Manager{% endblock title %}
+
+{% block content %}
+  <h2>Add Meal Plan</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Add Meal Plan</button>
+  </form>
+  <a href="{% url 'meal_plan_list' %}" class="btn btn-secondary mt-3">Back to Meal Plans</a>
+{% endblock content %}

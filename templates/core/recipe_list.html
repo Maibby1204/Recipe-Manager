@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %}
+{% block title %}Recipes - Recipe Manager{% endblock title %}
+{% block content %}
+  <h2>Recipes</h2>
+  <ul class="list-group">
+    {% for recipe in recipes %}
+      <li class="list-group-item">
+        <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a>
+      </li>
+    {% empty %}
+      <li class="list-group-item">No recipes available.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'add_recipe' %}" class="btn btn-success mt-3">Add New Recipe</a>
+{% endblock content %}

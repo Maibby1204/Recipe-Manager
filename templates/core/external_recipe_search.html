@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% block title %}External Recipe Search - Recipe Manager{% endblock title %}
+
+{% block content %}
+  <h2>Search External Recipes</h2>
+  <form method="get" class="form-inline mb-3">
+    <div class="form-group mx-sm-3">
+      <input type="text" name="query" placeholder="Search for recipes" value="{{ query }}" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+  {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+  {% endif %}
+
+  {% if results %}
+    <h3>Results:</h3>
+    <ul class="list-group">
+      {% for recipe in results %}
+         <li class="list-group-item">
+            <h5>{{ recipe.title }}</h5>
+            {% if recipe.image %}
+               <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="img-fluid" style="max-width: 200px;">
+            {% endif %}
+         </li>
+      {% endfor %}
+    </ul>
+  {% elif query %}
+    <p>No results found for "{{ query }}".</p>
+  {% endif %}
+{% endblock content %}

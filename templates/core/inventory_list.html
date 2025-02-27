@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% block title %}Inventory - Recipe Manager{% endblock title %}
+
+{% block content %}
+  <h2>Inventory Management</h2>
+  <table class="table table-bordered">
+      <thead>
+          <tr>
+              <th>Ingredient</th>
+              <th>Current Stock</th>
+              <th>Threshold</th>
+              <th>Actions</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for item in items %}
+              <tr>
+                  <td>{{ item.ingredient.name }}</td>
+                  <td>{{ item.current_stock }}</td>
+                  <td>{{ item.threshold }}</td>
+                  <td>
+                      <a href="{% url 'update_inventory' item.pk %}" class="btn btn-sm btn-primary">Update</a>
+                  </td>
+              </tr>
+          {% empty %}
+              <tr>
+                  <td colspan="4">No inventory items found.</td>
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+{% endblock content %}

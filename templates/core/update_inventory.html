@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% block title %}Update Inventory - Recipe Manager{% endblock title %}
+
+{% block content %}
+  <h2>Update Inventory Item</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+  <a href="{% url 'inventory_list' %}" class="btn btn-secondary mt-3">Back to Inventory</a>
+{% endblock content %}

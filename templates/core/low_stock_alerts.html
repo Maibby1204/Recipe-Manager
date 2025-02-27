@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% block title %}Low Stock Alerts - Recipe Manager{% endblock title %}
+
+{% block content %}
+  <h2>Low Stock Alerts</h2>
+  {% if low_stock_items %}
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Ingredient</th>
+          <th>Current Stock</th>
+          <th>Threshold</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in low_stock_items %}
+          <tr>
+            <td>{{ item.ingredient.name }}</td>
+            <td>{{ item.current_stock }} {{ item.ingredient.unit }}</td>
+            <td>{{ item.threshold }} {{ item.ingredient.unit }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>All inventory items are sufficiently stocked.</p>
+  {% endif %}
+{% endblock content %}

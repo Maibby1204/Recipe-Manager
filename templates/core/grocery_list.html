@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Grocery List - Recipe Manager{% endblock title %}
+
+{% block content %}
+  <h2>Grocery List</h2>
+  {% if grocery_dict %}
+    <table class="table table-bordered">
+      <thead>
+         <tr>
+             <th>Ingredient</th>
+             <th>Total Quantity</th>
+         </tr>
+      </thead>
+      <tbody>
+         {% for ingredient, quantity in grocery_dict.items %}
+            <tr>
+              <td>{{ ingredient.name }}</td>
+              <td>{{ quantity }} {{ ingredient.unit }}</td>
+            </tr>
+         {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>No meal plans found. Please add meal plans to generate a grocery list.</p>
+  {% endif %}
+{% endblock content %}

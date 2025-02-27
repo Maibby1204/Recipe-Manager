@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+{% block title %}Sign Up - Recipe Manager{% endblock title %}
+{% block content %}
+  <div class="container mt-5">
+    <h2>Sign Up</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-success">Sign Up</button>
+    </form>
+    <p class="mt-3">Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+  </div>
+{% endblock content %}

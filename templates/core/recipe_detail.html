@@ -1,0 +1,9 @@
+{% extends 'core/base.html' %}
+{% block title %}{{ recipe.title }} - Recipe Manager{% endblock title %}
+{% block content %}
+  <h2>{{ recipe.title }}</h2>
+  <p>{{ recipe.description }}</p>
+  <h4>Instructions:</h4>
+  <p>{{ recipe.instructions }}</p>
+  <a href="{% url 'recipe_list' %}" class="btn btn-secondary">Back to Recipes</a>
+{% endblock content %}

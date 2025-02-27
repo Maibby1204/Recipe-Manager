@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% block title %}Meal Plans - Recipe Manager{% endblock title %}
+
+{% block content %}
+  <h2>My Meal Plans</h2>
+  {% if meal_plans %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Recipe</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for plan in meal_plans %}
+          <tr>
+            <td>{{ plan.date }}</td>
+            <td>
+              <a href="{% url 'recipe_detail' plan.recipe.pk %}">{{ plan.recipe.title }}</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>You have not added any meal plans yet.</p>
+  {% endif %}
+  <a href="{% url 'add_meal_plan' %}" class="btn btn-success">Add Meal Plan</a>
+{% endblock content %}

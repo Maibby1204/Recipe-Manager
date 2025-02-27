@@ -1,0 +1,77 @@
+# Django-specific files
+*.log
+*.pot
+*.pyc
+__pycache__/
+db.sqlite3
+media/
+
+# Backup files
+*.bak
+
+# Python virtual environments
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# IDE-specific files (e.g., PyCharm, VSCode)
+.idea/
+.vscode/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule.*
+
+# SageMath parsed files
+*.sage.py
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# macOS specific files
+.DS_Store
+
+# Windows specific files
+Thumbs.db
