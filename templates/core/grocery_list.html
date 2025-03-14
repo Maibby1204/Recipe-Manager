@@ -1,27 +1,30 @@
+<!-- templates/core/grocery_list.html -->
 {% extends 'core/base.html' %}
-
-{% block title %}Grocery List - Recipe Manager{% endblock title %}
-
+{% block title %}Grocery List{% endblock title %}
 {% block content %}
   <h2>Grocery List</h2>
-  {% if grocery_dict %}
+  {% if items %}
     <table class="table table-bordered">
       <thead>
          <tr>
              <th>Ingredient</th>
-             <th>Total Quantity</th>
+             <th>Missing Quantity</th>
+             <th>Action</th>
          </tr>
       </thead>
       <tbody>
-         {% for ingredient, quantity in grocery_dict.items %}
+         {% for item in items %}
             <tr>
-              <td>{{ ingredient.name }}</td>
-              <td>{{ quantity }} {{ ingredient.unit }}</td>
+              <td>{{ item.ingredient.name }}</td>
+              <td>{{ item.total_quantity }} {{ item.ingredient.measurement_unit }}</td>
+              <td>
+                <a href="{% url 'confirm_purchase' item.id %}" class="btn btn-primary">Confirm Purchase</a>
+              </td>
             </tr>
          {% endfor %}
       </tbody>
     </table>
   {% else %}
-    <p>No meal plans found. Please add meal plans to generate a grocery list.</p>
+    <p>No items in your grocery list.</p>
   {% endif %}
 {% endblock content %}

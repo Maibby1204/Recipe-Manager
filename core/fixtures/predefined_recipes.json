@@ -1,0 +1,112 @@
+[
+    {
+        "model": "core.recipe",
+        "pk": 1,
+        "fields": {
+            "title": "Cornflakes Breakfast",
+            "description": "A simple breakfast with Kellogg's Cornflakes and milk.",
+            "instructions": "Pour Kellogg's Cornflakes into a bowl, add cold whole milk, and enjoy.",
+            "author": 1,
+            "created_at": "2025-03-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "core.recipe",
+        "pk": 2,
+        "fields": {
+            "title": "Tuna Sandwich",
+            "description": "A quick and tasty tuna sandwich.",
+            "instructions": "Mix tuna with mayonnaise and seasonings, then place between slices of bread.",
+            "author": 1,
+            "created_at": "2025-03-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "core.recipe",
+        "pk": 3,
+        "fields": {
+            "title": "Oatmeal",
+            "description": "Warm oatmeal with milk and a touch of sugar.",
+            "instructions": "Cook oats with whole milk on low heat. Stir in a little sugar and serve warm.",
+            "author": 1,
+            "created_at": "2025-03-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "core.recipe",
+        "pk": 4,
+        "fields": {
+            "title": "Scrambled Eggs",
+            "description": "Fluffy scrambled eggs made with butter.",
+            "instructions": "Beat eggs, add a pinch of salt and pepper, and cook slowly in butter until softly scrambled.",
+            "author": 1,
+            "created_at": "2025-03-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "core.recipe",
+        "pk": 5,
+        "fields": {
+            "title": "Peanut Butter Toast",
+            "description": "A quick snack of toast with peanut butter.",
+            "instructions": "Toast bread and spread peanut butter over it. Enjoy immediately.",
+            "author": 1,
+            "created_at": "2025-03-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "core.recipe",
+        "pk": 6,
+        "fields": {
+            "title": "Fruit Salad",
+            "description": "A refreshing mix of assorted fruits.",
+            "instructions": "Chop up pineapple, mango, strawberries, and blueberries. Mix and serve chilled.",
+            "author": 1,
+            "created_at": "2025-03-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "core.recipe",
+        "pk": 7,
+        "fields": {
+            "title": "Grilled Cheese Sandwich",
+            "description": "A classic grilled cheese sandwich with cheddar.",
+            "instructions": "Butter two slices of bread, add cheddar cheese between them, and grill until golden.",
+            "author": 1,
+            "created_at": "2025-03-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "core.recipe",
+        "pk": 8,
+        "fields": {
+            "title": "Spaghetti Aglio e Olio",
+            "description": "Simple spaghetti with garlic, olive oil, and basil.",
+            "instructions": "Cook spaghetti until al dente. Sauté garlic in olive oil, add red onions and basil, then toss with spaghetti.",
+            "author": 1,
+            "created_at": "2025-03-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "core.recipe",
+        "pk": 9,
+        "fields": {
+            "title": "Chicken Salad",
+            "description": "A light chicken salad with fresh vegetables.",
+            "instructions": "Mix sliced chicken breast with chopped tomatoes, red onions, lettuce, olive oil, salt, and pepper.",
+            "author": 1,
+            "created_at": "2025-03-13T00:00:00Z"
+        }
+    },
+    {
+        "model": "core.recipe",
+        "pk": 10,
+        "fields": {
+            "title": "Vegetable Soup",
+            "description": "A hearty soup with fresh vegetables.",
+            "instructions": "Simmer carrots, potatoes, celery, and broccoli in broth with salt and pepper until tender.",
+            "author": 1,
+            "created_at": "2025-03-13T00:00:00Z"
+        }
+    }
+]

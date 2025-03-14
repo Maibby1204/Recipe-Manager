@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
-{% block title %}Update Inventory - Recipe Manager{% endblock title %}
+{% block title %}Update Stock{% endblock title %}
 {% block content %}
-  <h2>Update Inventory Item</h2>
+  <h2>Update Stock for {{ item.ingredient.name }} ({{ item.ingredient.measurement_unit }})</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

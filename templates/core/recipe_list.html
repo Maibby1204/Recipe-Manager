@@ -1,43 +1,29 @@
 {% extends 'core/base.html' %}
 {% block title %}Recipes - Recipe Manager{% endblock title %}
-
 {% block content %}
-<div class="section">
-  <h2 class="section-heading">My Recipes</h2>
-  {% if recipes %}
-    <div class="row">
-      {% for recipe in recipes %}
-        <div class="col-md-6 col-lg-4 mb-4">
-          <div class="custom-card h-100">
-            <h5 class="card-title">{{ recipe.title }}</h5>
-            <p class="card-text">
-              <strong>Ingredients:</strong>
-              <ul>
-                {% for ri in recipe.recipeingredient_set.all %}
-                  <li>{{ ri.ingredient.name }} - {{ ri.quantity }} {{ ri.ingredient.measurement_unit }}</li>
-                {% empty %}
-                  <li>No ingredients listed.</li>
-                {% endfor %}
-              </ul>
-            </p>
-            {% if recipe.has_enough_ingredients %}
-              <span class="badge badge-success">Enough Ingredients</span>
-            {% else %}
-              <span class="badge badge-danger">Not Enough Ingredients</span>
-            {% endif %}
-            <div class="mt-2">
-              <a href="{% url 'recipe_detail' recipe.pk %}" class="btn btn-sm btn-outline-light">View</a>
-              {% if recipe.author == user %}
-                <a href="{% url 'edit_recipe' recipe.pk %}" class="btn btn-sm btn-outline-primary ml-2">Edit</a>
+  <h2>Recipes</h2>
+  <div class="row">
+    {% for recipe in recipes %}
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a>
+              {% if sufficient_recipe_ids and recipe.id in sufficient_recipe_ids %}
+                <span class="badge badge-success">Enough Ingredients</span>
+              {% else %}
+                <span class="badge badge-danger">Missing Ingredients</span>
               {% endif %}
-            </div>
+            </h5>
+            <p class="card-text">{{ recipe.description|truncatewords:20 }}</p>
+            {% if recipe.author == user %}
+              <a href="{% url 'edit_recipe' recipe.pk %}" class="btn btn-sm btn-secondary">Edit</a>
+              <a href="{% url 'delete_recipe' recipe.pk %}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this recipe?');">Delete</a>
+            {% endif %}
           </div>
         </div>
-      {% endfor %}
-    </div>
-  {% else %}
-    <p>No recipes available.</p>
-  {% endif %}
-  <a href="{% url 'add_recipe' %}" class="btn btn-success mt-4">Add New Recipe</a>
-</div>
+      </div>
+    {% endfor %}
+  </div>
+  <a href="{% url 'add_recipe' %}" class="btn btn-success mt-3">Add New Recipe</a>
 {% endblock content %}

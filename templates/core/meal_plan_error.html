@@ -1,0 +1,21 @@
+<!-- templates/core/meal_plan_error.html -->
+{% extends 'core/base.html' %}
+{% block title %}Not Enough Ingredients{% endblock title %}
+{% block content %}
+  <h2>Not Enough Ingredients</h2>
+  <p>You do not have enough ingredients for the selected recipe.</p>
+  <ul>
+    {% for ingredient, qty in missing.items %}
+      <li>{{ ingredient.name }} ({{ ingredient.measurement_unit }}): missing {{ qty }}</li>
+    {% endfor %}
+  </ul>
+  <p>Would you like to add the missing items to your grocery list?</p>
+  <form method="post" action="{% url 'add_missing_to_grocery_list' %}">
+    {% csrf_token %}
+    {% for ingredient, qty in missing.items %}
+      <input type="hidden" name="missing_{{ ingredient.id }}" value="{{ qty }}">
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Add to Grocery List</button>
+    <a href="{% url 'add_meal_plan' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock content %}

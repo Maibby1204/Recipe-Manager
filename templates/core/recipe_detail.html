@@ -3,7 +3,17 @@
 {% block content %}
   <h2>{{ recipe.title }}</h2>
   <p>{{ recipe.description }}</p>
-  <h4>Instructions:</h4>
+
+  <h3>Ingredients</h3>
+  <ul>
+    {% for ri in recipe.recipeingredient_set.all %}
+      <li>{{ ri.quantity }} {{ ri.ingredient.measurement_unit }} of {{ ri.ingredient.name }}</li>
+    {% empty %}
+      <li>No ingredients listed for this recipe.</li>
+    {% endfor %}
+  </ul>
+
+  <h3>Instructions</h3>
   <p>{{ recipe.instructions }}</p>
   <a href="{% url 'recipe_list' %}" class="btn btn-secondary">Back to Recipes</a>
 {% endblock content %}

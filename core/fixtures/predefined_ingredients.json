@@ -1,0 +1,650 @@
+[
+    {
+        "model": "core.ingredient",
+        "pk": 1,
+        "fields": {
+            "name": "Cabbage",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 2,
+        "fields": {
+            "name": "Red onions",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 3,
+        "fields": {
+            "name": "Fettuccine pasta",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 4,
+        "fields": {
+            "name": "Tomatoes",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 5,
+        "fields": {
+            "name": "Olive oil",
+            "measurement_unit": "ml",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 6,
+        "fields": {
+            "name": "Garlic cloves",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 7,
+        "fields": {
+            "name": "Chicken breast",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 8,
+        "fields": {
+            "name": "Parmesan cheese",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 9,
+        "fields": {
+            "name": "Whole milk",
+            "measurement_unit": "ml",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 10,
+        "fields": {
+            "name": "Basil leaves",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 11,
+        "fields": {
+            "name": "Flour",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 12,
+        "fields": {
+            "name": "Sugar",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 13,
+        "fields": {
+            "name": "Butter",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 14,
+        "fields": {
+            "name": "Eggs",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 15,
+        "fields": {
+            "name": "Salt",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 16,
+        "fields": {
+            "name": "Black pepper",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 17,
+        "fields": {
+            "name": "Carrots",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 18,
+        "fields": {
+            "name": "Potatoes",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 19,
+        "fields": {
+            "name": "Spinach",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 20,
+        "fields": {
+            "name": "Cheddar cheese",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 21,
+        "fields": {
+            "name": "Mushrooms",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 22,
+        "fields": {
+            "name": "Broccoli",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 23,
+        "fields": {
+            "name": "Soy sauce",
+            "measurement_unit": "ml",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 24,
+        "fields": {
+            "name": "Almonds",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 25,
+        "fields": {
+            "name": "Walnuts",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 26,
+        "fields": {
+            "name": "Cashews",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 27,
+        "fields": {
+            "name": "Peanuts",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 28,
+        "fields": {
+            "name": "Sesame seeds",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 29,
+        "fields": {
+            "name": "Sunflower seeds",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 30,
+        "fields": {
+            "name": "Pumpkin seeds",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 31,
+        "fields": {
+            "name": "Chia seeds",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 32,
+        "fields": {
+            "name": "Coconut milk",
+            "measurement_unit": "ml",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 33,
+        "fields": {
+            "name": "Tofu",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 34,
+        "fields": {
+            "name": "Tempeh",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 35,
+        "fields": {
+            "name": "Chickpeas",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 36,
+        "fields": {
+            "name": "Lentils",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 37,
+        "fields": {
+            "name": "Quinoa",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 38,
+        "fields": {
+            "name": "Brown rice",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 39,
+        "fields": {
+            "name": "White rice",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 40,
+        "fields": {
+            "name": "Oats",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 41,
+        "fields": {
+            "name": "Barley",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 42,
+        "fields": {
+            "name": "Cornmeal",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 43,
+        "fields": {
+            "name": "Wheat flour",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 44,
+        "fields": {
+            "name": "Coconut flour",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 45,
+        "fields": {
+            "name": "Buckwheat flour",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 46,
+        "fields": {
+            "name": "Couscous",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 47,
+        "fields": {
+            "name": "Macaroni pasta",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 48,
+        "fields": {
+            "name": "Penne pasta",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 49,
+        "fields": {
+            "name": "Spaghetti pasta",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 50,
+        "fields": {
+            "name": "Farro",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 51,
+        "fields": {
+            "name": "Raisins",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 52,
+        "fields": {
+            "name": "Cranberries",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 53,
+        "fields": {
+            "name": "Prunes",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 54,
+        "fields": {
+            "name": "Dates",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 55,
+        "fields": {
+            "name": "Apricots",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 56,
+        "fields": {
+            "name": "Peaches",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 57,
+        "fields": {
+            "name": "Pineapple",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 58,
+        "fields": {
+            "name": "Mango",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 59,
+        "fields": {
+            "name": "Strawberries",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 60,
+        "fields": {
+            "name": "Blueberries",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 61,
+        "fields": {
+            "name": "Raspberries",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 62,
+        "fields": {
+            "name": "Blackberries",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 63,
+        "fields": {
+            "name": "Cherries",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 64,
+        "fields": {
+            "name": "Grapes",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 65,
+        "fields": {
+            "name": "Cucumber",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 66,
+        "fields": {
+            "name": "Lettuce",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 67,
+        "fields": {
+            "name": "Celery",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 68,
+        "fields": {
+            "name": "Kellogg's Corn Flakes",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 69,
+        "fields": {
+            "name": "Tuna",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 70,
+        "fields": {
+            "name": "Bread",
+            "measurement_unit": "pieces",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 71,
+        "fields": {
+            "name": "Mayonnaise",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    },
+    {
+        "model": "core.ingredient",
+        "pk": 72,
+        "fields": {
+            "name": "Peanut Butter",
+            "measurement_unit": "g",
+            "is_predefined": true
+        }
+    }
+]

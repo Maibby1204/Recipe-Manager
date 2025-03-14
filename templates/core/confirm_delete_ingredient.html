@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% block title %}Confirm Delete Ingredient{% endblock title %}
+{% block content %}
+  <h2>Confirm Deletion</h2>
+  <p>Are you sure you want to delete the ingredient "{{ ingredient.name }}"?</p>
+  <p>This will remove any recipes, grocery list items, meal plans, and inventory records that depend on it.</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'inventory_list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock content %}
