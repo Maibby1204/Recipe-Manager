@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% block title %}Confirm Delete Recipe{% endblock title %}
+{% block content %}
+  <h2>Confirm Deletion</h2>
+  <p>Are you sure you want to delete the recipe "{{ recipe.title }}"?</p>
+  <p>This action will delete all associated data (such as recipe ingredients, linked meal plans, etc.).</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'recipe_detail' recipe.pk %}" class="btn btn-secondary">Cancel</a>
+  </form>
+{% endblock content %}

@@ -1,32 +1,78 @@
 {% extends 'core/base.html' %}
 {% block title %}Inventory - Recipe Manager{% endblock title %}
-
 {% block content %}
   <h2>Inventory Management</h2>
-  <table class="table table-bordered">
+  
+  <!-- Search Form -->
+  <form method="get" class="form-inline mb-3">
+      <input type="text" name="query" placeholder="Search ingredients" value="{{ query }}" class="form-control mr-2">
+      <button type="submit" class="btn btn-primary">Search</button>
+      <a href="{% url 'inventory_list' %}" class="btn btn-secondary ml-2">Clear</a>
+  </form>
+  
+  <!-- Table for Inventory Items (in-stock) -->
+  <h3>Items in Inventory</h3>
+  {% if in_stock_items %}
+    <table class="table table-bordered">
       <thead>
-          <tr>
-              <th>Ingredient</th>
-              <th>Current Stock</th>
-              <th>Threshold</th>
-              <th>Actions</th>
-          </tr>
+        <tr>
+          <th>Ingredient</th>
+          <th>Current Stock</th>
+          <th>Actions</th>
+        </tr>
       </thead>
       <tbody>
-          {% for item in items %}
-              <tr>
-                  <td>{{ item.ingredient.name }}</td>
-                  <td>{{ item.current_stock }}</td>
-                  <td>{{ item.threshold }}</td>
-                  <td>
-                      <a href="{% url 'update_inventory' item.pk %}" class="btn btn-sm btn-primary">Update</a>
-                  </td>
-              </tr>
-          {% empty %}
-              <tr>
-                  <td colspan="4">No inventory items found.</td>
-              </tr>
-          {% endfor %}
+        {% for item in in_stock_items %}
+          <tr>
+            <td>{{ item.ingredient.name }} ({{ item.ingredient.measurement_unit }})</td>
+            <td>{{ item.current_stock }} {{ item.ingredient.measurement_unit }}</td>
+            <td>
+              <a href="{% url 'update_stock' item.pk %}" class="btn btn-sm btn-primary">Update Stock</a>
+              <a href="{% url 'add_stock' item.ingredient.id %}" class="btn btn-sm btn-info">Add Stock</a>
+              {% if not item.ingredient.is_predefined %}
+                <a href="{% url 'edit_nonpredefined_ingredient' item.ingredient.id %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'delete_nonpredefined_ingredient' item.ingredient.id %}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this ingredient and all its dependent data?');">Delete</a>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
       </tbody>
-  </table>
+    </table>
+  {% else %}
+    <p>No items in inventory.</p>
+  {% endif %}
+  
+  <!-- Table for Missing Ingredients -->
+  <h3>Missing Ingredients</h3>
+  {% if missing_ingredients %}
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Ingredient</th>
+          <th>Measurement Unit</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for ing in missing_ingredients %}
+          <tr>
+            <td>{{ ing.name }}</td>
+            <td>{{ ing.measurement_unit }}</td>
+            <td>
+              <a href="{% url 'add_stock' ing.id %}" class="btn btn-sm btn-info">Add Stock</a>
+              {% if not ing.is_predefined %}
+                <a href="{% url 'edit_nonpredefined_ingredient' ing.id %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'delete_nonpredefined_ingredient' ing.id %}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this ingredient?');">Delete</a>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>All ingredients are in stock.</p>
+  {% endif %}
+  
+  <!-- Option to add a new ingredient (non-predefined) -->
+  <a href="{% url 'add_new_ingredient' %}" class="btn btn-success mt-3">Add New Ingredient</a>
 {% endblock content %}

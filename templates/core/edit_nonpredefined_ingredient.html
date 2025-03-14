@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% block title %}Edit Ingredient{% endblock title %}
+{% block content %}
+  <h2>Edit Ingredient: {{ ingredient.name }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_name">Name:</label>
+      <input type="text" name="name" id="id_name" class="form-control" value="{{ ingredient.name }}" required>
+    </div>
+    <div class="form-group">
+      <label for="id_measurement_unit">Measurement Unit:</label>
+      <select name="measurement_unit" id="id_measurement_unit" class="form-control" required>
+        {% for value, label in unit_choices %}
+          <option value="{{ value }}" {% if ingredient.measurement_unit == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a href="{% url 'inventory_list' %}" class="btn btn-secondary">Cancel</a>
+  </form>
+
+  <hr>
+  <a href="{% url 'delete_nonpredefined_ingredient' ingredient.id %}" class="btn btn-danger" onclick="return confirm('Deleting this ingredient will remove all associated recipes and data. Are you sure?');">Delete Ingredient</a>
+{% endblock content %}

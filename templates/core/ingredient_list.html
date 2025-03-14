@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% block title %}Ingredients - Recipe Manager{% endblock title %}
+{% block content %}
+  <h2>All Ingredients</h2>
+  <form method="get" class="form-inline mb-3">
+      <input type="text" name="query" placeholder="Search ingredients" value="{{ query }}" class="form-control mr-2">
+      <button type="submit" class="btn btn-primary">Search</button>
+      <!-- Optional: A link to add new ingredients if applicable -->
+      <a href="{% url 'add_new_ingredient' %}" class="btn btn-success ml-2">Add New Ingredient</a>
+  </form>
+  <ul class="list-group">
+    {% for ingredient in ingredients %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span>{{ ingredient.name }} ({{ ingredient.measurement_unit }})</span>
+          <span>
+              <!-- Always allow "Add Stock" so users can update the stock -->
+              <a href="{% url 'add_stock' ingredient.id %}" class="btn btn-sm btn-info">Add Stock</a>
+              <!-- If the ingredient is not predefined, allow deletion -->
+              {% if not ingredient.is_predefined %}
+                <a href="{% url 'delete_ingredient' ingredient.id %}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this ingredient?');">Delete</a>
+              {% endif %}
+          </span>
+      </li>
+    {% empty %}
+      <li class="list-group-item">No ingredients found.</li>
+    {% endfor %}
+  </ul>
+{% endblock content %}

@@ -2,14 +2,28 @@
 {% block title %}Recipes - Recipe Manager{% endblock title %}
 {% block content %}
   <h2>Recipes</h2>
-  <ul class="list-group">
+  <div class="row">
     {% for recipe in recipes %}
-      <li class="list-group-item">
-        <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a>
-      </li>
-    {% empty %}
-      <li class="list-group-item">No recipes available.</li>
+      <div class="col-md-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a>
+              {% if sufficient_recipe_ids and recipe.id in sufficient_recipe_ids %}
+                <span class="badge badge-success">Enough Ingredients</span>
+              {% else %}
+                <span class="badge badge-danger">Missing Ingredients</span>
+              {% endif %}
+            </h5>
+            <p class="card-text">{{ recipe.description|truncatewords:20 }}</p>
+            {% if recipe.author == user %}
+              <a href="{% url 'edit_recipe' recipe.pk %}" class="btn btn-sm btn-secondary">Edit</a>
+              <a href="{% url 'delete_recipe' recipe.pk %}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this recipe?');">Delete</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
   <a href="{% url 'add_recipe' %}" class="btn btn-success mt-3">Add New Recipe</a>
 {% endblock content %}

@@ -2,9 +2,101 @@
 {% block title %}Add Recipe - Recipe Manager{% endblock title %}
 {% block content %}
   <h2>Add New Recipe</h2>
-  <form method="post">
+  <form method="post" id="recipe-form">
     {% csrf_token %}
     {{ form.as_p }}
+    
+    <h3>Ingredients</h3>
+    <div id="formset">
+      {{ formset.management_form }}
+      {% for form in formset %}
+        <div class="ingredient-form border p-3 mb-2">
+          {{ form.as_p }}
+          <button type="button" class="btn btn-danger remove-form">Remove</button>
+        </div>
+      {% endfor %}
+    </div>
+    <button type="button" id="add-form" class="btn btn-secondary">Add Another Ingredient</button>
+    <br><br>
     <button type="submit" class="btn btn-primary">Add Recipe</button>
   </form>
+  
+  <script>
+    // Function to toggle the new ingredient input field.
+    // We now hide only the "new ingredient" text field if an existing ingredient is selected.
+    function toggleNewIngredientFields(row) {
+        var ingredientSelect = row.querySelector('select[name$="-ingredient"]');
+        if (!ingredientSelect) return;
+        var newIngredientInput = row.querySelector('input[name$="-new_ingredient"]');
+        if (ingredientSelect.value) {
+            if (newIngredientInput && newIngredientInput.closest('.form-group'))
+                newIngredientInput.closest('.form-group').style.display = 'none';
+        } else {
+            if (newIngredientInput && newIngredientInput.closest('.form-group'))
+                newIngredientInput.closest('.form-group').style.display = '';
+        }
+        // Do not hide the measurement unit field so the user may choose a conversion unit.
+    }
+
+    function initializeIngredientFormRows() {
+        var rows = document.querySelectorAll('.ingredient-form');
+        rows.forEach(function(row) {
+            toggleNewIngredientFields(row);
+            var select = row.querySelector('select[name$="-ingredient"]');
+            if (select) {
+                select.addEventListener('change', function() {
+                    toggleNewIngredientFields(row);
+                });
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        initializeIngredientFormRows();
+
+        // Dynamic formset: add a new ingredient row.
+        var addFormButton = document.getElementById('add-form');
+        var formsetDiv = document.getElementById('formset');
+        var totalFormsInput = document.getElementById('id_recipeingredient_set-TOTAL_FORMS');
+
+        addFormButton.addEventListener('click', function() {
+            var firstRow = document.querySelector('.ingredient-form');
+            var newRow = firstRow.cloneNode(true);
+            var formIdx = parseInt(totalFormsInput.value);
+            var inputs = newRow.querySelectorAll('input, select, textarea');
+            inputs.forEach(function(input) {
+                if (input.name) {
+                    var newName = input.name.replace(/-\d+-/, '-' + formIdx + '-');
+                    input.name = newName;
+                    input.id = 'id_' + newName;
+                    // Clear value for selects and inputs.
+                    if (input.tagName.toLowerCase() === "select") {
+                        input.selectedIndex = 0;
+                    } else {
+                        input.value = "";
+                    }
+                }
+            });
+            formsetDiv.appendChild(newRow);
+            totalFormsInput.value = formIdx + 1;
+            toggleNewIngredientFields(newRow);
+            var newSelect = newRow.querySelector('select[name$="-ingredient"]');
+            if (newSelect) {
+                newSelect.addEventListener('change', function() {
+                    toggleNewIngredientFields(newRow);
+                });
+            }
+        });
+
+        // Allow removal of a row.
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('remove-form')) {
+                var allRows = document.querySelectorAll('.ingredient-form');
+                if (allRows.length > 1) {
+                    e.target.closest('.ingredient-form').remove();
+                }
+            }
+        });
+    });
+  </script>
 {% endblock content %}
