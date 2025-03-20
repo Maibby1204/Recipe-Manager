@@ -1,9 +1,20 @@
 {% extends 'core/base.html' %}
 {% block title %}Home - Recipe Manager{% endblock title %}
 {% block content %}
-  <div class="jumbotron text-center">
-    <h2>Welcome to Recipe Manager!</h2>
-    <p>Your platform for managing recipes, meal plans, grocery lists, and inventory.</p>
-    <a href="{% url 'recipe_list' %}" class="btn btn-primary">View Recipes</a>
-  </div>
+
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+  <body>
+    <div class="jumbotron text-center">
+      <h2>Welcome to Recipe Manager!</h2>
+      <p>Your platform for managing recipes, meal plans, grocery lists, and inventory.</p>
+      <a href="{% url 'recipe_list' %}" class="btn btn-primary">View Recipes</a>
+    </div>
+    
+    
+    
+    </body>
+    </html>
 {% endblock content %}
