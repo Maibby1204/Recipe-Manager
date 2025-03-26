@@ -1,6 +1,6 @@
 
 body {
-    background-color: #425b8a;
+    background-color: #4669a9 !important;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -20,7 +20,7 @@ body {
 }
 
 .jumbotron {
-    background-color: #ffffff;
+    background-color: #582323;
     border-radius: 0.5rem;
     padding: 2rem;
     margin-bottom: 2rem;
