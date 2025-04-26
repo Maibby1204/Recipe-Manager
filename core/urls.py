@@ -27,4 +27,6 @@ urlpatterns = [
     path('ingredient/edit/<int:ingredient_id>/', views.edit_nonpredefined_ingredient, name='edit_nonpredefined_ingredient'),
     path('ingredient/delete/<int:ingredient_id>/', views.delete_nonpredefined_ingredient, name='delete_nonpredefined_ingredient'),
     path('recipes/delete/<int:pk>/', views.delete_recipe, name='delete_recipe'),
+    path('recipes/<int:pk>/cook/', views.cook_recipe_view, name='cook_recipe'),
+    path('recipes/<int:pk>/confirm-cook/', views.confirm_cook_recipe, name='confirm_cook_recipe'),
 ]

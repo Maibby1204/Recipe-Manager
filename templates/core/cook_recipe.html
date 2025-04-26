@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% block title %}Cook Recipe - Recipe Manager{% endblock title %}
+
+{% block content %}
+<div class="card shadow-sm my-4">
+  <div class="card-header bg-grey text-white">
+    <h2 class="mb-0">Cook Recipe: {{ recipe.title }}</h2>
+  </div>
+
+  <div class="card-body">
+    <h4>Ingredients Required:</h4>
+    <ul class="list-group mb-4">
+      {% for ingredient in ingredients %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ ingredient.ingredient.name }}
+          <span>{{ ingredient.quantity }} {{ ingredient.ingredient.measurement_unit }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <form method="post" action="{% url 'confirm_cook_recipe' recipe.pk %}">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-success">Cook Recipe</button>
+      <a href="{% url 'recipe_list' %}" class="btn btn-secondary ml-2">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

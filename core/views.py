@@ -433,3 +433,32 @@ def delete_recipe(request, pk):
         messages.success(request, "Recipe deleted successfully.")
         return redirect('recipe_list')
     return render(request, 'core/confirm_delete_recipe.html', {'recipe': recipe})
+
+@login_required
+def cook_recipe_view(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk)
+    ingredients = recipe.recipeingredient_set.all()
+    return render(request, 'core/cook_recipe.html', {'recipe': recipe, 'ingredients': ingredients})
+
+@login_required
+def confirm_cook_recipe(request, pk):
+    recipe = get_object_or_404(Recipe, pk=pk)
+    ingredients = recipe.recipeingredient_set.all()
+
+    user_inventory = {item.ingredient.id: item for item in InventoryItem.objects.filter(user=request.user)}
+
+    # Check if user has enough of all ingredients
+    for ri in ingredients:
+        inventory_item = user_inventory.get(ri.ingredient.id)
+        if not inventory_item or inventory_item.current_stock < ri.quantity:
+            messages.error(request, f"Not enough {ri.ingredient.name} to cook this recipe.")
+            return redirect('cook_recipe', pk=recipe.pk)
+
+    # If enough, deduct from inventory
+    for ri in ingredients:
+        inventory_item = user_inventory.get(ri.ingredient.id)
+        inventory_item.current_stock -= ri.quantity
+        inventory_item.save()
+
+    messages.success(request, f"Successfully cooked {recipe.title} and updated your inventory!")
+    return redirect('recipe_list')
