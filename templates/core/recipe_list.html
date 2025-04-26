@@ -1,15 +1,43 @@
 {% extends 'core/base.html' %}
 {% block title %}Recipes - Recipe Manager{% endblock title %}
+
 {% block content %}
-  <h2>Recipes</h2>
-  <ul class="list-group">
-    {% for recipe in recipes %}
-      <li class="list-group-item">
-        <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a>
-      </li>
-    {% empty %}
-      <li class="list-group-item">No recipes available.</li>
-    {% endfor %}
-  </ul>
-  <a href="{% url 'add_recipe' %}" class="btn btn-success mt-3">Add New Recipe</a>
+<div class="section">
+  <h2 class="section-heading">My Recipes</h2>
+  {% if recipes %}
+    <div class="row">
+      {% for recipe in recipes %}
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="custom-card h-100">
+            <h5 class="card-title">{{ recipe.title }}</h5>
+            <p class="card-text">
+              <strong>Ingredients:</strong>
+              <ul>
+                {% for ri in recipe.recipeingredient_set.all %}
+                  <li>{{ ri.ingredient.name }} - {{ ri.quantity }} {{ ri.ingredient.measurement_unit }}</li>
+                {% empty %}
+                  <li>No ingredients listed.</li>
+                {% endfor %}
+              </ul>
+            </p>
+            {% if recipe.has_enough_ingredients %}
+              <span class="badge badge-success">Enough Ingredients</span>
+            {% else %}
+              <span class="badge badge-danger">Not Enough Ingredients</span>
+            {% endif %}
+            <div class="mt-2">
+              <a href="{% url 'recipe_detail' recipe.pk %}" class="btn btn-sm btn-outline-light">View</a>
+              {% if recipe.author == user %}
+                <a href="{% url 'edit_recipe' recipe.pk %}" class="btn btn-sm btn-outline-primary ml-2">Edit</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No recipes available.</p>
+  {% endif %}
+  <a href="{% url 'add_recipe' %}" class="btn btn-success mt-4">Add New Recipe</a>
+</div>
 {% endblock content %}

@@ -1,11 +1,15 @@
-
+/* Base dark theme */
 body {
-    background-color: #777bd0 !important;
-    font-family: Arial, sans-serif;
+    background-color: #1b1f23;
+    color: #f2f2f2;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
 }
 
+
+
+/* Navbar */
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
@@ -15,27 +19,98 @@ body {
     font-size: 1.1rem;
 }
 
+/* Layout containers */
 .container {
     padding-top: 20px;
 }
 
-.jumbotron {
-    background-color: #a08484;
-    border-radius: 0.5rem;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Hero Section for Home */
+.home-hero {
+    background: linear-gradient(135deg, #141e30, #243b55);
+    padding: 4rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
-.list-group-item a {
-    color: #007bff;
+.home-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.home-subtitle {
+    font-size: 1.25rem;
+    color: #ccc;
+}
+
+/* Section layout */
+.section {
+    margin-bottom: 4rem;
+}
+
+.section-heading {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+/* Cards */
+.card-link {
     text-decoration: none;
 }
 
-.list-group-item a:hover {
-    text-decoration: underline;
+.custom-card {
+    height: 100%;
+    border: none;
+    border-radius: 1rem;
+    background-color: #2c2f33;
+    color: #ffffff;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+.custom-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    background-color: #343a40;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #ddd;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #46586c;
+    border-color: #455970;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-outline-primary {
+    border-color: #61dafb;
+    color: #61dafb;
+}
+
+.btn-outline-primary:hover {
+    background-color: #61dafb;
+    color: #1b1f23;
+    border-color: #61dafb;
+}
+
+/* Forms and Footer */
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -51,16 +126,3 @@ form {
 .mt-4 {
     margin-top: 1.5rem !important;
 }
-
-.btn-primary {
-    background-color: #46586c;
-    border-color: #455970;
-}
-
-.btn-success {
-    background-color: #28a745;
-    border-color: #28a745;
-}
-
-
-    
