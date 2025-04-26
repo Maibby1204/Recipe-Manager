@@ -1,22 +1,8 @@
 /* Base dark theme */
 body {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     background-color: #1b1f23;
     color: #f2f2f2;
     font-family: 'Segoe UI', sans-serif;
-=======
-=======
->>>>>>> parent of a1d7c4d (mvmjbjb)
-    background-color: #c6baba !important;
-    font-family: Arial, sans-serif;
->>>>>>> parent of a1d7c4d (mvmjbjb)
-=======
-    background-color: #1b1f23;
-    color: #f2f2f2;
-    font-family: 'Segoe UI', sans-serif;
->>>>>>> parent of daa9e56 (changes to css)
     margin: 0;
     padding: 0;
 }
@@ -71,6 +57,11 @@ body {
 }
 
 /* Cards */
+
+.card {
+    background-color: #ccc;
+}
+
 .card-link {
     text-decoration: none;
 }
@@ -80,7 +71,7 @@ body {
     border: none;
     border-radius: 1rem;
     background-color: #2c2f33;
-    color: #ffffff;
+    color: #ffffffa5;
     padding: 1.5rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -99,7 +90,7 @@ body {
 
 .card-text {
     font-size: 0.95rem;
-    color: #ddd;
+    color: #c1bebe;
 }
 
 /* Buttons */
@@ -140,3 +131,130 @@ form {
 .mt-4 {
     margin-top: 1.5rem !important;
 }
+.table {
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Card for forms */
+.card {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.card-header {
+    background-color: #343a40;
+}
+
+/* Headings inside cards */
+.card h2, .card h3 {
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+/* Form input fields styling */
+.card input[type="text"],
+.card input[type="number"],
+.card textarea,
+.card select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #34495e;
+    background-color: #34495e;
+    color: #ecf0f1;
+}
+
+.card input[type="text"]:focus,
+.card input[type="number"]:focus,
+.card textarea:focus,
+.card select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52,152,219,0.8);
+}
+
+/* Button styling */
+.btn-primary, .btn-secondary, .btn-danger {
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.btn-primary:hover {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.btn-secondary {
+    background-color: #7f8c8d;
+    border-color: #7f8c8d;
+}
+
+.btn-secondary:hover {
+    background-color: #95a5a6;
+    border-color: #95a5a6;
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+    border-color: #c0392b;
+}
+
+/* Ingredient form specific styling */
+.ingredient-form {
+    background-color: #34495e;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Label styling */
+.ingredient-form label {
+    font-weight: 600;
+    color: #bdc3c7;
+}
+
+/* Form spacing improvements */
+form p {
+    margin-bottom: 0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .card {
+        padding: 15px;
+    }
+}
+
+
+

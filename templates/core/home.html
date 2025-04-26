@@ -7,20 +7,72 @@
 <link rel="stylesheet" href="style.css">
 </head>
   <body>
-    <div class="jumbotron text-center">
-      <h2>Welcome to Recipe Manager!</h2>
-      <p>Your platform for managing recipes, meal plans, grocery lists, and inventory.</p>
-      <a href="{% url 'recipe_list' %}" class="btn btn-primary">View Recipes</a>
+    <div class="home-hero mb-5 p-5 rounded text-white text-center">
+      <h1 class="display-4 font-weight-bold">Recipe Manager</h1>
+      <p class="lead">Plan your meals, track ingredients, and never forget a grocery again.</p>
     </div>
-<<<<<<< HEAD
     
+    <div class="row text-center section-links mb-5">
+      <div class="col-md-3 mb-4">
+        <a href="{% url 'recipe_list' %}" class="card-link">
+          <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body">
+              <h5 class="card-title">📖 Recipes</h5>
+              <p class="card-text">Browse, create, and edit your favorite meals with precise ingredient tracking.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3 mb-4">
+        <a href="{% url 'inventory_list' %}" class="card-link">
+          <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body">
+              <h5 class="card-title">📦 Inventory</h5>
+              <p class="card-text">See what ingredients you have in stock and track usage automatically.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3 mb-4">
+        <a href="{% url 'meal_plan_list' %}" class="card-link">
+          <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body">
+              <h5 class="card-title">📅 Meal Plans</h5>
+              <p class="card-text">Schedule your meals and generate grocery lists based on upcoming dishes.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-3 mb-4">
+        <a href="{% url 'grocery_list' %}" class="card-link">
+          <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body">
+              <h5 class="card-title">🛒 Grocery List</h5>
+              <p class="card-text">Automatically track what ingredients you need based on your meal plan.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+    <h3 class="mb-3 text-white">Recently Viewed Recipes</h3>
+    <div class="row">
+      {% for recipe in recent_recipes %}
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm hover-card">
+            <div class="card-body">
+              <h5 class="card-title">{{ recipe.title }}</h5>
+              <p class="card-text">{{ recipe.description|truncatewords:15 }}</p>
+              <a href="{% url 'recipe_detail' recipe.pk %}" class="btn btn-outline-primary btn-sm">View Recipe</a>
+            </div>
+          </div>
+        </div>
+      {% empty %}
+        <p class="text-muted px-3">No recent recipes yet. Start exploring from the Recipes tab above!</p>
+      {% endfor %}
+    </div>
     
     
     </body>
     </html>
 {% endblock content %}
->>>>>>> parent of a1d7c4d (mvmjbjb)
-=======
-  </div>
-{% endblock content %}
->>>>>>> parent of daa9e56 (changes to css)
