@@ -258,3 +258,8 @@ form p {
 
 
 
+.ingredient-form {
+    background-color: #2c2f33;
+    border-radius: 0.75rem;
+    padding: 1rem;
+}
