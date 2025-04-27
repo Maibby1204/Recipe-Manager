@@ -498,3 +498,20 @@ def remove_grocery_item(request, grocery_item_id):
         item.delete()
     return redirect('grocery_list')
 
+@login_required
+def remove_meal_plan(request, plan_id):
+    meal_plan = get_object_or_404(MealPlan, id=plan_id, user=request.user)
+    if request.method == 'POST':
+        recipe = meal_plan.recipe
+        # Restore ingredients
+        for ri in recipe.recipeingredient_set.all():
+            inventory_item, created = InventoryItem.objects.get_or_create(
+                user=request.user,
+                ingredient=ri.ingredient,
+                defaults={'current_stock': 0}
+            )
+            inventory_item.current_stock += ri.quantity
+            inventory_item.save()
+        
+        meal_plan.delete()
+    return redirect('meal_plan_list')

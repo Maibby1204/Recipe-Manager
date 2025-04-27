@@ -9,6 +9,7 @@
         <tr>
           <th>Date</th>
           <th>Recipe</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,12 @@
             <td>{{ plan.date }}</td>
             <td>
               <a href="{% url 'recipe_detail' plan.recipe.pk %}">{{ plan.recipe.title }}</a>
+            </td>
+            <td>
+              <form method="post" action="{% url 'remove_meal_plan' plan.pk %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+              </form>
             </td>
           </tr>
         {% endfor %}

@@ -31,4 +31,5 @@ urlpatterns = [
     path('recipes/<int:pk>/confirm-cook/', views.confirm_cook_recipe, name='confirm_cook_recipe'),
     path('grocery-list/add/', views.add_to_grocery_list, name='add_to_grocery_list'),
     path('grocery-list/remove/<int:grocery_item_id>/', views.remove_grocery_item, name='remove_grocery_item'),
+    path('meal-plan/remove/<int:plan_id>/', views.remove_meal_plan, name='remove_meal_plan'),
 ]
