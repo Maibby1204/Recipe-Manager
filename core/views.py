@@ -474,7 +474,13 @@ def add_to_grocery_list(request):
 
         if ingredient_id and quantity:
             ingredient = get_object_or_404(Ingredient, id=ingredient_id)
-            grocery_list, created = GroceryList.objects.get_or_create(user=request.user, is_complete=False)
+
+            # Fetch the latest open grocery list (create a new one if none exist)
+            grocery_list = GroceryList.objects.filter(user=request.user, is_complete=False).order_by('-created_at').first()
+            if not grocery_list:
+                grocery_list = GroceryList.objects.create(user=request.user)
+
+            # Now add the item
             GroceryListItem.objects.create(
                 grocery_list=grocery_list,
                 ingredient=ingredient,
@@ -484,3 +490,4 @@ def add_to_grocery_list(request):
 
     ingredients = Ingredient.objects.all()
     return render(request, 'core/add_to_grocery_list.html', {'ingredients': ingredients})
+
