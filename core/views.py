@@ -447,14 +447,17 @@ def confirm_cook_recipe(request, pk):
 
     user_inventory = {item.ingredient.id: item for item in InventoryItem.objects.filter(user=request.user)}
 
-    # Check if user has enough of all ingredients
+    missing = {}
     for ri in ingredients:
         inventory_item = user_inventory.get(ri.ingredient.id)
-        if not inventory_item or inventory_item.current_stock < ri.quantity:
-            messages.error(request, f"Not enough {ri.ingredient.name} to cook this recipe.")
-            return redirect('cook_recipe', pk=recipe.pk)
+        available = inventory_item.current_stock if inventory_item else 0
+        if available < ri.quantity:
+            missing[ri.ingredient] = ri.quantity - available
 
-    # If enough, deduct from inventory
+    if missing:
+        return render(request, 'core/cook_recipe_error.html', {'missing': missing, 'recipe': recipe})
+
+    # If enough ingredients, deduct them
     for ri in ingredients:
         inventory_item = user_inventory.get(ri.ingredient.id)
         inventory_item.current_stock -= ri.quantity
@@ -462,3 +465,22 @@ def confirm_cook_recipe(request, pk):
 
     messages.success(request, f"Successfully cooked {recipe.title} and updated your inventory!")
     return redirect('recipe_list')
+
+@login_required
+def add_to_grocery_list(request):
+    if request.method == 'POST':
+        ingredient_id = request.POST.get('ingredient')
+        quantity = request.POST.get('quantity')
+
+        if ingredient_id and quantity:
+            ingredient = get_object_or_404(Ingredient, id=ingredient_id)
+            grocery_list, created = GroceryList.objects.get_or_create(user=request.user, is_complete=False)
+            GroceryListItem.objects.create(
+                grocery_list=grocery_list,
+                ingredient=ingredient,
+                total_quantity=quantity
+            )
+            return redirect('grocery_list')
+
+    ingredients = Ingredient.objects.all()
+    return render(request, 'core/add_to_grocery_list.html', {'ingredients': ingredients})

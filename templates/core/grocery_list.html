@@ -3,6 +3,9 @@
 {% block title %}Grocery List{% endblock title %}
 {% block content %}
   <h2>Grocery List</h2>
+  
+  <a href="{% url 'add_to_grocery_list' %}" class="btn btn-success mb-3">Add Item to Grocery List</a>
+
   {% if items %}
     <table class="table table-bordered">
       <thead>

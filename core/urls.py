@@ -29,4 +29,5 @@ urlpatterns = [
     path('recipes/delete/<int:pk>/', views.delete_recipe, name='delete_recipe'),
     path('recipes/<int:pk>/cook/', views.cook_recipe_view, name='cook_recipe'),
     path('recipes/<int:pk>/confirm-cook/', views.confirm_cook_recipe, name='confirm_cook_recipe'),
+    path('grocery-list/add/', views.add_to_grocery_list, name='add_to_grocery_list'),
 ]
