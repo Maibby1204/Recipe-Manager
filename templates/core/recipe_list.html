@@ -1,6 +1,12 @@
 {% extends 'core/base.html' %}
 {% block title %}Recipes - Recipe Manager{% endblock title %}
 {% block content %}
+<form method="get" class="form-inline mb-4">
+  <input type="text" name="q" value="{{ query }}" placeholder="Search recipes..." class="form-control mr-2" />
+  <button type="submit" class="btn btn-primary">Search</button>
+  <a href="{% url 'recipe_list' %}" class="btn btn-secondary ml-2">Clear</a>
+</form>
+
   <h2>Recipes</h2>
   <div class="row">
     {% for recipe in recipes %}

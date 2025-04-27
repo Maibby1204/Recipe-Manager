@@ -18,7 +18,12 @@ def home(request):
     return render(request, 'core/home.html')
 
 def recipe_list(request):
+    query = request.GET.get('q', '')
     recipes = Recipe.objects.all()
+    
+    if query:
+        recipes = recipes.filter(title__icontains=query)
+
     sufficient_recipe_ids = []
     if request.user.is_authenticated:
         user_inventory = {item.ingredient.id: item.current_stock for item in InventoryItem.objects.filter(user=request.user)}
@@ -30,7 +35,12 @@ def recipe_list(request):
                     break
             if enough:
                 sufficient_recipe_ids.append(recipe.id)
-    return render(request, 'core/recipe_list.html', {'recipes': recipes, 'sufficient_recipe_ids': sufficient_recipe_ids})
+
+    return render(request, 'core/recipe_list.html', {
+        'recipes': recipes,
+        'sufficient_recipe_ids': sufficient_recipe_ids,
+        'query': query,
+    })
 
 def recipe_detail(request, pk):
     recipe = get_object_or_404(Recipe, pk=pk)
