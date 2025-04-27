@@ -20,9 +20,14 @@
             <tr>
               <td>{{ item.ingredient.name }}</td>
               <td>{{ item.total_quantity }} {{ item.ingredient.measurement_unit }}</td>
-              <td>
-                <a href="{% url 'confirm_purchase' item.id %}" class="btn btn-primary">Confirm Purchase</a>
+              <td class="d-flex">
+                <a href="{% url 'confirm_purchase' item.id %}" class="btn btn-primary btn-sm mr-2">Confirm Purchase</a>
+                <form action="{% url 'remove_grocery_item' item.id %}" method="post" style="display:inline;">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                </form>
               </td>
+              
             </tr>
          {% endfor %}
       </tbody>

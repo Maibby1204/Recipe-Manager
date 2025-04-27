@@ -30,4 +30,5 @@ urlpatterns = [
     path('recipes/<int:pk>/cook/', views.cook_recipe_view, name='cook_recipe'),
     path('recipes/<int:pk>/confirm-cook/', views.confirm_cook_recipe, name='confirm_cook_recipe'),
     path('grocery-list/add/', views.add_to_grocery_list, name='add_to_grocery_list'),
+    path('grocery-list/remove/<int:grocery_item_id>/', views.remove_grocery_item, name='remove_grocery_item'),
 ]

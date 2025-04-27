@@ -491,3 +491,10 @@ def add_to_grocery_list(request):
     ingredients = Ingredient.objects.all()
     return render(request, 'core/add_to_grocery_list.html', {'ingredients': ingredients})
 
+@login_required
+def remove_grocery_item(request, grocery_item_id):
+    item = get_object_or_404(GroceryListItem, id=grocery_item_id, grocery_list__user=request.user)
+    if request.method == 'POST':
+        item.delete()
+    return redirect('grocery_list')
+
