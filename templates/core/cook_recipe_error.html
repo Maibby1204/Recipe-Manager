@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% block title %}Not Enough Ingredients{% endblock title %}
+{% block content %}
+<div class="card shadow-sm my-4">
+  <div class="card-header bg-danger text-white">
+    <h2 class="mb-0">Not Enough Ingredients</h2>
+  </div>
+
+  <div class="card-body">
+    <p>You do not have enough ingredients to cook "{{ recipe.title }}".</p>
+    <ul class="list-group mb-3">
+      {% for ingredient, qty in missing.items %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ ingredient.name }} ({{ ingredient.measurement_unit }})
+          <span>Missing: {{ qty }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <p>Would you like to add the missing items to your grocery list?</p>
+
+    <form method="post" action="{% url 'add_missing_to_grocery_list' %}">
+      {% csrf_token %}
+      {% for ingredient, qty in missing.items %}
+        <input type="hidden" name="missing_{{ ingredient.id }}" value="{{ qty }}">
+      {% endfor %}
+      <button type="submit" class="btn btn-primary">Add to Grocery List</button>
+      <a href="{% url 'recipe_list' %}" class="btn btn-secondary ml-2">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
