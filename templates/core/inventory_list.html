@@ -62,7 +62,7 @@
               <a href="{% url 'add_stock' ing.id %}" class="btn btn-sm btn-info">Add Stock</a>
               {% if not ing.is_predefined %}
                 <a href="{% url 'edit_nonpredefined_ingredient' ing.id %}" class="btn btn-sm btn-warning">Edit</a>
-                <a href="{% url 'delete_nonpredefined_ingredient' ing.id %}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this ingredient?');">Delete</a>
+                <a href="{% url 'delete_nonpredefined_ingredient' ing.id %}" class="btn btn-sm btn-danger">Delete</a>
               {% endif %}
             </td>
           </tr>
